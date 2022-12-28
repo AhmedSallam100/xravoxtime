@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+  <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
   <title>Ravox Time</title>
 </head>
 <body>
@@ -33,7 +37,7 @@
         <img class="head-logo" src="img/logo-nobg.png" alt="">
         <div class="links">
           <a class="link active" href="#main">الرئيسية</a>
-          <a class="link" href="#">خلفيات</a>
+          <a class="link" href="#wall">خلفيات</a>
           <a class="link" href="#">العاب</a>
           <a class="link" href="#">تطبيقات</a>
         </div>
@@ -43,12 +47,12 @@
         </div>
       </div>
     </header>
-    <div class="home-container">
+    <div class="home-container container">
       <div class="purple-circle"></div>
       <div class="purple-circle purple-circle-2"></div>
       <div class="purple-circle purple-circle-3"></div>
       <div class="purple-circle purple-circle-4"></div>
-      <div class="purple-circle purple-circle-5"></div>
+      <!-- <div class="purple-circle purple-circle-5"></div> -->
       <div class="home-data">
         <p>في هذا الموقع ستجد العديد من الخلفيات </p>
         <p>والتطبيقات و الالعاب الذي سنرشحها لكم</p>
@@ -57,7 +61,73 @@
       </div>
       <img class="home-img" src="img/home-img.png" alt="">
     </div>
+    <div class="wall-container container" id="wall">
+      <div class="main-title">
+        <span>خلفيات</span>
+        <div class="top"></div>
+        <div class="left"></div>
+        <div class="bottom"></div>
+        <div class="right"></div>
+      </div>
+      <div class="wall-head">
+        <span><i class="uil uil-angle-left-b"></i>عرض المزيد</span>
+        <span>خلفيات بسيطة</span>
+      </div>
+      <div style="position: absolute;left: 4%;top: 125%;" class="purple-circle purple-circle-10"></div>
+      <div style="    position: absolute;
+      top: 119%;
+      left: 62%;" class="purple-circle purple-circle-6"></div>
+      <div style="background-color: #f67f03;     position: absolute;
+      left: 88%;
+      top: 104%;" class="purple-circle purple-circle-7"></div>
+      <div class="purple-circle purple-circle-8"></div>
+      <div class="purple-circle purple-circle-9"></div>
+      <!-- Swiper -->
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide swiper-2"><div class="cont-img "><img src="img/wall/wall-1-1.png" /></div><a class="wall-a" href="img/wall-download/wall-1.jpg" download=""><button class="button-49" role="button">تحميل الان</button></a></div>
+          <div class="swiper-slide swiper-2"><div class="cont-img"><img src="img/wall/wall-2.png" /></div><a class="wall-a" href="img/wall-download/wall-2.jpg" download=""><button class="button-49" role="button">تحميل الان</button></a></div>
+          <div class="swiper-slide swiper-2"><div     display: flex;
+            margin-left: 40px; class="cont-img threee"><img src="img/wall/wall-3.png" /></div><a class="wall-a" href="img/wall-download/wall-3.jpg" download=""><button class="button-49" role="button">تحميل الان</button></a></div>
+          <div class="swiper-slide swiper-2"><div class="cont-img four"><img src="img/wall/wall-4.png" /></div><a class="wall-a" href="img/wall-download/wall-4.jpg" download=""><button class="button-49" role="button">تحميل الان</button></a></div>
+          <div class="swiper-slide swiper-2"><div class="cont-img five"><img src="img/wall/wall-5.png" /></div><a class="wall-a" href="img/wall-download/wall-5.jpg" download=""><button class="button-49" role="button">تحميل الان</button></a></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
   </div>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        breakpoints: {
+          "@0.00": {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          "@0.75": {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          "@1.00": {
+            slidesPerView: 3,
+            spaceBetween: 40,
+          },
+          "@1.50": {
+            slidesPerView: 4,
+            spaceBetween: 50,
+          },
+        },
+      });
+    </script>
   <script src="js/main.js"></script>
 </body>
 </html>
