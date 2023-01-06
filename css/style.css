@@ -2,19 +2,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;400;600;800;1000&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
 /* Var */
 :root {
-  --main-color: #0d0523;
+  --main-color: #161621;
   --second-color: #7505f0;
   --orange-color: #f67f03;
   --light-color: #211141;
+  --card-color: #26263b;
   --hue-color: 250;
   --second-color-alt: hsl(var(--hue-color), 57%, 53%);
+  --tran-2: all 0.2s ease;
+  --tran-3: all 0.3s ease;
+  --tran-4: all 0.4s ease;
+  --tran-5: all 0.5s ease;
 }
 body {
   font-family: 'Tajawal', sans-serif;
   background-color: var(--main-color);
   height: 3000px;
-  /* position: relative; */
+  position: relative;
+  overflow-x: hidden;
 }
+/* .home-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#f00, #f0f);
+  clip-path: circle(30% at right 70%);
+  z-index: -1;
+} */
 /* Start Global Rules */
 * {
   margin: 0;
@@ -35,7 +52,7 @@ html {
   width: 15px;
 }
 ::-webkit-scrollbar-track {
-  background-color: transparent;
+  background-color: black;
 }
 ::-webkit-scrollbar-thumb {
   background-color: var(--second-color);
@@ -112,6 +129,104 @@ html {
     height: 50px;
   }
 }
+/* Start Loader */
+.container-7 {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+section {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99999999;
+}
+@media only screen and (max-width: 600px) {
+  section {
+  min-width: 350px;
+  }
+}
+.loader {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: 75px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.loader-1 .loader-outter {
+  position: absolute;
+  border: 9px solid var(--second-color);
+  border-left-color: transparent;
+  border-bottom: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: var(--tran-5);
+  -webkit-animation: loader-1-outter 1s cubic-bezier(.42, .61, .58, .41) infinite;
+  animation: loader-1-outter 1s cubic-bezier(.42, .61, .58, .41) infinite;
+}
+.loader-1 .loader-inner {
+  position: absolute;
+  border: 9px solid var(--second-color-alt);
+  border-radius: 50%;
+  width: 166px;
+  height: 165px;
+  left: calc(50% - 83px);
+  top: calc(50% - 83px);
+  border-right: 0;
+  border-top-color: transparent;
+  transition: var(--tran-5);
+  -webkit-animation: loader-1-inner 1s cubic-bezier(.42, .61, .58, .41) infinite;
+  animation: loader-1-inner 1s cubic-bezier(.42, .61, .58, .41) infinite;
+}
+.fb-32 {
+  filter: blur(32px);
+}
+@-webkit-keyframes loader-1-outter {
+  0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+  }
+  100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+  }
+}
+@keyframes loader-1-outter {
+  0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+  }
+  100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes loader-1-inner {
+  0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+  }
+  100% {
+      -webkit-transform: rotate(-360deg);
+      transform: rotate(-360deg);
+  }
+}
+@keyframes loader-1-inner {
+  0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+  }
+  100% {
+      -webkit-transform: rotate(-360deg);
+      transform: rotate(-360deg);
+  }
+}
+/* End Loader */
 /* Start Head */
 header {
   position: fixed;
@@ -321,6 +436,7 @@ header {
 }
 .links .link:hover {
   color: var(--second-color);
+  letter-spacing: 2px;
 }
 .open-hum {
   width: 50px;
@@ -642,6 +758,11 @@ header {
   border-radius: 50%;
   backdrop-filter: blur(5px);
 }
+.point-slide a:hover::after {
+  /* transform: scale(1.1); */
+  width: 350%;
+  height: 350%;
+}
 .point-slide a.active-4 {
   background-color: hsl(291deg 100% 61%);
 }
@@ -692,6 +813,7 @@ header {
   width: fit-content;
   margin: auto;
   margin-bottom: 45px;
+  user-select: none;
 }
 .main-title span {
   color: white;
@@ -775,12 +897,18 @@ button:hover .right {
 .wall-head {
   color: white;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   font-size: 19px;
 }
-.wall-head  span:nth-child(1) {
-  cursor: pointer;
+.wall-head .show {
+  transition: 0.3s;
 }
+.wall-head .show:hover {
+  color: var(--second-color);
+}
+/* .wall-head  span:nth-child(1) {
+  cursor: pointer;
+} */
 .img-cont::after {
   content: "";
   position: absolute;
@@ -898,7 +1026,105 @@ button:hover .right {
 .show-more:hover .arrow-show {
   margin-right: 25px;
 }
+.mouse {
+  width: 136px;
+  height: 170px;
+  cursor: pointer;
+  display: flex;
+  margin: auto;
+}
 /* .img-cont:hover .wall-img, .img-cont::after {
   transform: rotate(5deg) !important;
 } */
 /* End Wallpaper */
+/* Start Services */
+/* .services-container {
+  height: 100vh;
+} */
+.cards {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(29%, 1fr));
+  margin-bottom: 387px;
+}
+@media (max-width: 1090px) {
+  .cards {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+@media (max-width: 400px) {
+  .cards {
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  }
+}
+.card {
+  padding: 35px;
+  border-radius: 6px;
+  position: relative;
+  transition: var(--tran-3);
+  overflow: hidden;
+  height: 100%;
+  background-color: var(--card-color);
+  /* border-bottom: 2px solid rgba(255, 255, 255, 0.5); */
+}
+.card::after {
+  content: "";
+  position: absolute;
+  background-color: #656593;
+  left: -30px;
+  width: 120px;
+  height: 120px;
+  bottom: -30px;
+  filter: blur(74px);
+}
+.img-serv {
+  display: flex;
+  width: fit-content;
+  margin: auto;
+  background-color: rgb(22 22 33 / 50%);
+  padding: 27px;
+  border-radius: 50%;
+}
+.card img {
+  width: 80px;
+}
+.card h1, p {
+  color: white;
+  text-align: center;
+}
+.card p {
+  margin-top: 10px;
+  font-size: 20px;
+}
+.over-2 {
+  text-align: start;
+  left: 0;
+}
+.overflow-div {
+  position: absolute;
+  width: 300px;
+  bottom: -84px;
+  overflow: hidden;
+  z-index: 1;
+}
+.over-2 img {
+  width: 334px;
+  position: relative;
+  left: -180px;
+  top: 675px;
+  z-index: -1;
+  animation: up-down 3s infinite;
+}
+.over-1 {
+  text-align: end;
+  right: 0 !important;
+  height: 0;
+}
+.over-1 img {
+  width: 334px;
+  position: relative;
+  right: -180px;
+  top: 277px;
+  animation: up-down 3s infinite;
+}
+/* End Services */

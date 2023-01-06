@@ -127,3 +127,28 @@ let whats = document.querySelector(".whats");
 setInterval(() => {
   whats.classList.toggle("wobble");
 }, 1500);
+
+// Show Loader
+
+// let myPage = document.querySelector("body"),
+//     myLoad = document.querySelector(".loader-1")
+
+// setTimeout(() => {
+//   myPage.classList.remove("fb-32")
+//   myLoad.style.opacity = "0"
+//   myLoad.style.display = "none"
+// }, 2000)
+
+
+
+function tst() {
+  let myLet = 11;
+  if (myLet === 11) {
+    console.log("Done")
+  }
+  document.write("Iam In Page No Console")
+}
+
+myPage.onclick = tst()
+
+console.log(myLet)
