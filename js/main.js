@@ -63,6 +63,10 @@ window.addEventListener("scroll", () => {
     removeActive();
     link[5].classList.add("active-3");
   }
+  if (scrollY >= main1[6].offsetTop - 42) {
+    removeActive();
+    link[6].classList.add("active-3");
+  }
 });
 
 // Light On Sections

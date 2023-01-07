@@ -17,9 +17,10 @@
 body {
   font-family: 'Tajawal', sans-serif;
   background-color: var(--main-color);
-  height: 3000px;
+  /* height: 100vh; */
   position: relative;
   overflow-x: hidden;
+  padding-bottom: 20px;
 }
 /* .home-container::after {
   content: "";
@@ -1093,7 +1094,7 @@ button:hover .right {
   text-align: center;
 }
 .card p {
-  margin-top: 10px;
+  margin-top: 20px;
   font-size: 20px;
 }
 .over-2 {
@@ -1128,3 +1129,31 @@ button:hover .right {
   animation: up-down 3s infinite;
 }
 /* End Services */
+/* Start Games */
+.game-iframe {
+  transition: 0.3s;
+  display: flex;
+  margin: auto;
+  cursor: pointer !important;
+  margin-top: 20px;
+  border-radius: 10px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 99999999999;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+}
+.game-iframe:hover {
+  opacity: 0.97;
+}
+.go-game {
+  margin: auto;
+  display: flex;
+  width: fit-content;
+  position: absolute;
+  left: 50%;
+  top: 84%;
+  transform: translateX(-50%);
+}
+/* End Games */
